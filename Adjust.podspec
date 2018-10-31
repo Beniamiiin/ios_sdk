@@ -17,12 +17,17 @@ Pod::Spec.new do |s|
   s.subspec 'Core' do |co|
     co.source_files   = 'Adjust/*.{h,m}', 'Adjust/ADJAdditions/*.{h,m}'
   end
-
+  
+  s.subspec 'iMessage' do |im|
+    im.dependency 'Adjust/Core'
+    im.pod_target_xcconfig = { 'GCC_PREPROCESSOR_DEFINITIONS' => 'ADJUST_IM=1' }
+  end
+  
   s.subspec 'Sociomantic' do |sm|
     sm.source_files = 'plugin/Sociomantic/*.{h,m}'
     sm.dependency 'Adjust/Core'
   end
-
+  
   s.subspec 'Criteo' do |cr|
     cr.source_files = 'plugin/Criteo/*.{h,m}'
     cr.dependency 'Adjust/Core'
