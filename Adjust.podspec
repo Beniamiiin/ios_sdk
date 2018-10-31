@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
   end
   
   s.subspec 'iMessage' do |im|
-    im.source_files   = 'Adjust/*.{h,m}', 'Adjust/ADJAdditions/*.{h,m}'
+    im.dependency 'Adjust/Core'
     im.pod_target_xcconfig = { 'GCC_PREPROCESSOR_DEFINITIONS' => 'ADJUST_IM=1' }
   end
   
