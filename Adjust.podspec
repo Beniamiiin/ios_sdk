@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name           = "Adjust"
+  s.name           = "AdjustIMessage"
   s.version        = "4.15.0"
   s.summary        = "This is the iOS SDK of adjust. You can read more about it at http://adjust.com."
   s.homepage       = "https://github.com/adjust/ios_sdk"
@@ -16,6 +16,7 @@ Pod::Spec.new do |s|
 
   s.subspec 'Core' do |co|
     co.source_files   = 'Adjust/*.{h,m}', 'Adjust/ADJAdditions/*.{h,m}'
+    im.pod_target_xcconfig = { 'GCC_PREPROCESSOR_DEFINITIONS' => 'ADJUST_IM=1' }
   end
   
   s.subspec 'Sociomantic' do |sm|
